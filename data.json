@@ -1,0 +1,11 @@
+{
+  "todo": [
+    { "id": "1", "name": "Write Report", "description": "Monthly financial report" },
+    { "id": "2", "name": "Fix Bug", "description": "Resolve login issue" }
+  ],
+  "ongoing": [{ "id": "3", "name": "Design UI", "description": "Landing page mockup" }],
+  "completed": [
+    { "id": "4", "name": "Code Review", "description": "Review teammate's PR" },
+    { "id": "5", "name": "Team Meeting", "description": "Weekly sync at 10am" }
+  ]
+}
