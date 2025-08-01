@@ -20,9 +20,45 @@ function createCard(task) {
   card.className = "card";
   card.draggable = true;
   card.dataset.id = task.id;
-  card.innerHTML = `<strong>${task.name}</strong><p>${task.description}</p>`;
 
-  // Drag events
+  // Create inner content
+  card.innerHTML = `
+    <strong>${task.name}</strong>
+    <p>${task.description}</p>
+    <div class="comments"></div>
+    <input type="text" class="comment-input" placeholder="Add a comment" />
+    <button class="add-comment">Add</button>
+  `;
+
+  const commentsContainer = card.querySelector(".comments");
+  const input = card.querySelector(".comment-input");
+  const addBtn = card.querySelector(".add-comment");
+
+  // Render existing comments if any
+  if (task.comments && Array.isArray(task.comments)) {
+    task.comments.forEach((comment) => {
+      const p = document.createElement("p");
+      p.textContent = comment;
+      commentsContainer.appendChild(p);
+    });
+  }
+  //comments
+  addBtn.addEventListener("click", () => {
+    const commentText = input.value.trim();
+    if (!commentText) return;
+
+    const p = document.createElement("p");
+    p.textContent = commentText;
+    commentsContainer.appendChild(p);
+
+    // Save in-memory (extend this for backend/future save)
+    if (!task.comments) task.comments = [];
+    task.comments.push(commentText);
+
+    input.value = "";
+  });
+
+  //dragging of any box called
   card.addEventListener("dragstart", () => {
     draggedCard = card;
     card.classList.add("dragging");
@@ -58,6 +94,7 @@ function createCard(task) {
   return card;
 }
 
+//dropping of column
 document.querySelectorAll(".column").forEach((column) => {
   column.addEventListener("dragover", (e) => {
     e.preventDefault();
@@ -69,9 +106,6 @@ document.querySelectorAll(".column").forEach((column) => {
       e.target.appendChild(draggedCard);
     }
   });
-
-  // column.classList.add("dropped");
-  // setTimeout(() => column.classList.remove("dropped"), 300);
 });
 
 loadTasks();
