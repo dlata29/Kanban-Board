@@ -1,11 +1,18 @@
 {
   "todo": [
-    { "id": "1", "name": "Write Report", "description": "Monthly financial report" },
-    { "id": "2", "name": "Fix Bug", "description": "Resolve login issue" }
+    { "id": "1", "name": "Task A", "description": "To do Task A" },
+    { "id": "2", "name": "Task B", "description": "To do Task B" },
+    { "id": "3", "name": "Task C", "description": "To do Task C" },
+    { "id": "4", "name": "Task D", "description": "To do Task D" },
+    { "id": "5", "name": "Task E", "description": "To do Task E" }
   ],
-  "ongoing": [{ "id": "3", "name": "Design UI", "description": "Landing page mockup" }],
+  "ongoing": [
+    { "id": "6", "name": "Task F", "description": "Ongoing Task F" },
+    { "id": "7", "name": "Task G", "description": "Ongoing Task G" }
+  ],
   "completed": [
-    { "id": "4", "name": "Code Review", "description": "Review teammate's PR" },
-    { "id": "5", "name": "Team Meeting", "description": "Weekly sync at 10am" }
+    { "id": "8", "name": "Task H", "description": "Completed Task H" },
+    { "id": "9", "name": "Task I", "description": "Completed Task I" },
+    { "id": "10", "name": "Task J", "description": "Completed Task J" }
   ]
 }
